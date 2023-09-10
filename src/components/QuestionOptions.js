@@ -1,4 +1,10 @@
-export default function QuestionOptions({ options, dispatch, correctOption, answer }) {
+import { useQuizContext } from '../contexts/QuizContext';
+
+export default function QuestionOptions() {
+  const { currentQuestionIndex, questions, answer, dispatch } = useQuizContext();
+
+  const { options, correctOption } = questions[currentQuestionIndex];
+
   const answered = answer !== null;
 
   const getButtonClass = (index) => {
